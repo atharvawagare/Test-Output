@@ -6,16 +6,21 @@
 # os.rmdir("./renamed_images")
 # os.rename("./12.png", "./test1.png")
 # path="./images/"
-
 def rename_images_in(path):
 	import os
+
+	os.mkdir("renamed")
+	new_path="./renamed/"
 
 	images = os.listdir(path)
 
 	i=1
 	for img in images:
 		new="test"+str(i)+"."
-		os.rename(path+img, path+new+img.split(".")[-1])
+		os.rename(path+img, new_path+new+img.split(".")[-1])
 		i+=1
+
+	os.rmdir(path)
+	os.rename(new_path, path)
 
 rename_images_in("./images/")
