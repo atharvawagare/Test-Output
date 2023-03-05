@@ -12,9 +12,9 @@ register_coco_instances("my_dataset_test", {}, "/code/detectron2/detectron2/inst
 
 #load the config file, configure the threshold value, load weights 
 cfg = get_cfg()
-cfg.merge_from_file("/code/detectron2/detectron2/output/custom_mask_rcnn_X_101_32x8d_FPN_3x_Iteration_3_dataset.yaml")
+cfg.merge_from_file("./configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml")
 cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = 0.5  # set threshold for this model
-cfg.MODEL.WEIGHTS = "/code/detectron2/detectron2/output/model_final.pth"
+cfg.MODEL.WEIGHTS = "$FVCORE_CACHE/model_final_f10217.pkl"
 
 # Create predictor
 predictor = DefaultPredictor(cfg)
